@@ -1,0 +1,13 @@
+---
+
+- name: 'check if python is installed'
+  raw: PATH=$PATH:/opt/bin python --version
+  register: python_missing
+  ignore_errors: yes
+
+- name: 'install python and pip via bash script'
+  script: install-python.sh
+  when: python_missing | failed
+
+- name: 'python and pip should be installed'
+  shell: PATH=$PATH:/opt/bin python --version && PATH=$PATH:/opt/bin pip --version

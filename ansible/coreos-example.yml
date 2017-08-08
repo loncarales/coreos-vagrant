@@ -1,0 +1,10 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- name: 'coreos example provision docker-compose'
+  hosts: coreos
+  roles:
+    - coreos-example
+
+  environment:
+    PATH: '{{ ansible_env.PATH }}:/opt/bin'

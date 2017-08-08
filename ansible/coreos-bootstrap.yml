@@ -1,0 +1,8 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- name: 'bootstrap coreos so it can work with ansible'
+  hosts: coreos
+  gather_facts: no
+  roles:
+    - coreos-bootstrap

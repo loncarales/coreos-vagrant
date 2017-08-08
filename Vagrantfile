@@ -62,6 +62,8 @@ Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
   # forward ssh agent to easily ssh into the different machines
   config.ssh.forward_agent = true
+  # private key implicit
+  config.ssh.private_key_path = "./pki/vagrant.rsa"
 
   config.vm.box = "coreos-alpha"
   config.vm.box_url = "https://alpha.release.core-os.net/amd64-usr/current/coreos_production_vagrant_virtualbox.json"
